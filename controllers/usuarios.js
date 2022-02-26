@@ -1,11 +1,14 @@
-const {response, request} = require('express')
+const {response, request} = require('express');
+const bcryptjs = require('bcryptjs');
+const Usuario = require('../models/usuario');
+const { validationResult } = require('express-validator');
 
 const usuariosGet  = (req = request, res = response) => {
 
     const query = req.query;
    
     res.json({
-        msg:'get API - Controlador',
+        msg:'get API - Controladorr',
         query
     })
 }
@@ -20,15 +23,49 @@ const usuariosPut  = (req, res = response) => {
     })
 }
 
-const usuariosPost  = (req, res = response) => {
+const usuariosPost  = async (req = request, res = response) => {
    
-     const body = req.body;
+   
 
+    const { codigo_usuario, password, rut, nombre } = req.body;
+    const usuario = await new Usuario({ codigo_usuario, password, rut, nombre })
+
+    try {
+        // console.log(body);
+        // const usuario = await Usuario.create(body)
+
+        const existeUsuario = await Usuario.findOne({  where: {
+            
+            codigo_usuario: codigo_usuario 
+       
+        } } );
+
+        if ( existeUsuario ){
+            return res.status(400).json({
+                msg: 'El Usuario ingresado ya existe en los registros del sistema'   
+            });
+           
+        }
+        
+        const salt = bcryptjs.genSaltSync();
+        usuario.password =  bcryptjs.hashSync( password, salt );
+
+
+        await usuario.save()
 
     res.json({
         msg:'post API - Controlador',
-        body
-    })
+        usuario 
+     } )
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            msg:'Se ha producido un error al intentar grabar el usuario'
+        });
+    }
+   
+
+  
 }
 
 const usuariosDelete  = (req, res = response) => {

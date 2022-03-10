@@ -8,7 +8,8 @@ require('tls').DEFAULT_MIN_VERSION = 'TLSv1'
 
 const db = new Sequelize('Gestion', 'sa', 'cerrillos_2013', {
    
-    host:'201.188.182.183',
+    host:
+    '201.188.184.51',
     dialect:'mssql',
     dialectModule: tedious,
     define: {

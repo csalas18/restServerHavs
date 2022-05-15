@@ -15,7 +15,7 @@ const router = Router();
 
     router.post('/' , [
            check('codigoTecnico', 'el codigo del tecnico es obligatorio').not().isEmpty(),
-           check('rutCliente', 'el rut de usuario es obligatorio').not().isEmpty()
+           check('rutCliente', 'debe ingresar el rut del usuario').not().isEmpty()
         
     ] ,entradasPost );
        

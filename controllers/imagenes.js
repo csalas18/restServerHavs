@@ -30,7 +30,7 @@ const imagenesPost = ((req, res) => {
         
        
         // console.log(req.file.filename)
-        var imgsrc = '\\\\SERVIDORAVS\\imagenes' + req.file.filename
+        var imgsrc = '\\\\SERVIDORAVS\\imagenes\\' + req.file.filename
         var insertData = "INSERT INTO APP_imagenes(file_src, usuario, idRecepcion, nombreModelo) VALUES ( '" + imgsrc + "','" + usuario + "','" + idRecepcion + "','" + nombreModelo + "')"
         
         db.query(insertData, [imgsrc], (err, result) => {

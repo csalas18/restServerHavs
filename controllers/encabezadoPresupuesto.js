@@ -21,10 +21,14 @@ const encabezadoPresupuestoPost  = async (req = request, res = response) => {
     })
 
     if (OT){
-        return res.status(400).json({
-            ok:true,
-            msg: 'Ya existe el numero de OT'
-        }) ;
+        // return res.status(400).json({
+        //     ok:true,
+        //     msg: 'Ya existe el numero de OT'
+        // }) ;
+
+        res.json({
+            ok:true
+        })
     }
 
     const encabezado = await new EntradaPresupuesto({ numeroOT, codigoTecnico })

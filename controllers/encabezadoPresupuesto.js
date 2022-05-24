@@ -14,17 +14,17 @@ const encabezadoPresupuestoPost  = async (req = request, res = response) => {
     const { numeroOT, codigoTecnico } = req.body;
    
 
-    const OT  = await EntradaPresupuesto.findOne({
-        where :{
-            numeroOT: req.body.numeroOT
-        }
-    })
+    // const OT  = await EntradaPresupuesto.findOne({
+    //     where :{
+    //         numeroOT: req.body.numeroOT
+    //     }
+    // })
 
-    if (ot){
-        return res.status(400).json({
-            msg: 'Ya existe el numero de OT'
-        }) ;
-    }
+    // if (ot){
+    //     return res.status(400).json({
+    //         msg: 'Ya existe el numero de OT'
+    //     }) ;
+    // }
 
     const encabezado = await new EntradaPresupuesto({ numeroOT, codigoTecnico })
     try {

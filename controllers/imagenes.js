@@ -19,7 +19,7 @@ const imagenesPost = ((req, res) => {
   
 
     if (!req.file) {
-        console.log("No file upload");
+        console.log("No se subió ningun archivo");
 
         
         // res.json({

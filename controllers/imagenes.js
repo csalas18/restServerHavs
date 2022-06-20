@@ -40,6 +40,7 @@ const imagenesPost = ((req, res) => {
        
         res.json({
             ok: true
+            
             })
      
 

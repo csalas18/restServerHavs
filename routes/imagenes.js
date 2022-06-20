@@ -65,7 +65,8 @@ async function ftp_connect(req,file, nombre) {
 
 
   ftp_client.on('ready', function() {
-    ftp_client.put('./public/images/' + nombre, '/flash/Imagen1.jpg', function(err) {
+    // 'ftp_client.put('./public/images/' + nombre, '/flash/Imagen1.jpg', function(err) {
+      ftp_client.put(req.file, '/flash/Imagen1.jpg', function(err) {
       if (err) throw err;
       ftp_client.end();
       // console.log(req)

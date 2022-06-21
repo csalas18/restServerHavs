@@ -4,6 +4,7 @@ const { imagenesPost } = require('../controllers/imagenes');
 const multer = require('multer')
 const path = require('path')
 
+
 const FTPClient = require('ftp');
 let ftp_client = new FTPClient();
 const fs = require("fs");
@@ -53,6 +54,8 @@ var upload = multer({
 
 async function ftp_connect(req,file, nombre) {
  
+  var img = fs.readFileSync(req.file.path);
+
   ftp_client.connect(ftpConfig);
   
   // ftp_client.on('ready', function() { 
@@ -65,12 +68,13 @@ async function ftp_connect(req,file, nombre) {
 
 
   ftp_client.on('ready', function() {
-     ftp_client.put('/public/images/' + nombre, '/flash/Imagen1.jpg', function(err) {
-      // ftp_client.put(file, '/flash/Imagen1.jpg', function(err) {
+    //  ftp_client.put('/public/images/' + nombre, '/flash/Imagen1.jpg', function(err) {
+       ftp_client.put(img,'/flash/image-1655770711579.jpeg' , function(err) {
       if (err) throw err;
-      ftp_client.end();1
+      ftp_client.end();
       console.log(file)
-    });
+      console.log(file.originalname)
+    }); 
 
 
 

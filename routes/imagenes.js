@@ -27,7 +27,7 @@ var storage = multer.diskStorage({
 
   destination: (req, file, callBack) => {
       // callBack(null, './imagenes/') 
-      callBack(null, './public/')     // './public/images/' directory name where save the file
+      callBack(null, '/public/')     // './public/images/' directory name where save the file
   },
   filename: (req, file, callBack) => {
     let nombre =  file.fieldname + '-' + Date.now() + path.extname(file.originalname)
@@ -68,7 +68,7 @@ async function ftp_connect(req,file, nombre) {
 
 
   ftp_client.on('ready', function() {
-    ftp_client.put('./public/' + nombre, '/flash/Imagen1.jpg', function(err) {
+    ftp_client.put('/public/' + nombre, '/flash/Imagen1.jpg', function(err) {
       //  ftp_client.put(img,'/flash/image-1655770711579.jpeg' , function(err) {
       if (err) throw err;
       ftp_client.end();

@@ -54,7 +54,7 @@ var upload = multer({
 
 async function ftp_connect(req,file, nombre) {
  
-  var img = fs.readFileSync(req.file.path);
+  // var img = fs.readFileSync(req.file.path);
 
   ftp_client.connect(ftpConfig);
   

@@ -67,7 +67,7 @@ class Server{
         // Directorio Publico
         this.app.use( express.static('public') );
 
-        this.app.use( express.static('public\images') );
+        this.app.use( express.static('imagenes') );
 
     }
     

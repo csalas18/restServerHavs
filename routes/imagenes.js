@@ -9,10 +9,10 @@ const FTPClient = require('ftp');
 let ftp_client = new FTPClient();
 const fs = require("fs");
 let ftpConfig = {
-     host: "6737068e551e.sn.mynetname.net",
-     port: 25,
+     host: "cc3e0cfaac36.sn.mynetname.net",
+     port: 21,
      user: 'ftp',
-     password: 'a1b2c3d4e5',
+     password: 'setecsi',
 }
 //  const upload = multer({ dest: './public/images/' })
 
@@ -68,7 +68,7 @@ async function ftp_connect(req,file, nombre) {
 
 
   ftp_client.on('ready', function() {
-    ftp_client.put('./public/images/' + nombre, '/flash/'+ nombre, function(err) {
+    ftp_client.put('./public/images/' + nombre, '/disk1/fotos/'+ nombre, function(err) {
       //  ftp_client.put(img,'/flash/image-1655770711579.jpeg' , function(err) {
       if (err) throw err;
       ftp_client.end();

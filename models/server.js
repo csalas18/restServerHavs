@@ -28,10 +28,11 @@ class Server{
         this.comunasPath    = '/api/comunas';
         this.ciudadesPath    = '/api/ciudades';
         this.ordenesOtPath = '/api/buscarOT';
-        this.imprimirQRPath = '/api/imprimirQR'
-        this.EncabezadoPresupuestoPath = '/api/encabezadoPresupuesto'
-        this.DetallePresupuestoPath = '/api/detallePresupuesto'
-        this.imagenesPath = '/api/imagenes'
+        this.imprimirQRPath = '/api/imprimirQR';
+        this.EncabezadoPresupuestoPath = '/api/encabezadoPresupuesto';
+        this.DetallePresupuestoPath = '/api/detallePresupuesto';
+        this.imagenesPath = '/api/imagenes';
+        this.buscarDetalle = '/api/buscarDetalle';
         
 
         //Coneccion a sql server
@@ -87,8 +88,9 @@ class Server{
              this.app.use(this.EncabezadoPresupuestoPath, require('../routes/encabezadoPresupuesto') );
              this.app.use(this.DetallePresupuestoPath, require('../routes/detallePresupuesto') );
              this.app.use(this.imagenesPath, require('../routes/imagenes') );
+            this.app.use(this.buscarDetalle, require('../routes/buscadorDetalles'))
 
-             
+
 
 
 

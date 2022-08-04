@@ -28,7 +28,7 @@ const db = new Sequelize('Gestion', 'sa', 'cerrillos_2013', {
 
 
 
-//   const db = new Sequelize('Gestion', 'admin', 'admin04', {
+//   const db = new Sequelize('Gestion', 'admin', 'admin05', {
 //     host:'DESKTOP-KP3L1CM',
 //     dialect:'mssql',
 //     define: {

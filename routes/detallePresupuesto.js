@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 const { detallePresupuestoPost  } = require('../controllers/detallePresupuesto');
+
 const validarCampos = require('../middlewares/validar-campos');
 
 const router = Router();
-
 
 
 

@@ -14,8 +14,9 @@ const buscarDetalleOT = async( request , res = response) => {
         numeroEncabezado: detalleOT
     }});
    
-    return res.json({
-        results:( OTDetalle ) ? [ OTDetalle ] : []
+    res.json({
+        // results:( OTDetalle ) ? [ OTDetalle ] : []
+        OtDet
     })
 }
 

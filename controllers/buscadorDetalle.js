@@ -9,14 +9,13 @@ const buscarDetalleOT = async( request , res = response) => {
     const { detalleOT } = request.params;
 
 
-    console.log(detalleOT)
+  
     const OtDet = await OTDetalle.findOne( { where: {
         numeroEncabezado: detalleOT
     }});
    
-    res.json({
-        // results:( OTDetalle ) ? [ OTDetalle ] : []
-        OtDet
+    return res.json({
+        results:( OtDet ) ? [ OtDet ] : []
     })
 }
 
